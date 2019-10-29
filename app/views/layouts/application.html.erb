@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Syukatsu</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    ログインID:<%= session[:user_id] %>
+    <%= link_to("ログアウト", "/logout", {method: :post}) %>
+    <% if flash[:notice] %>
+        <div class="flash">
+          <%= flash[:notice] %>
+        </div>
+    <% end %>
+    <%= yield %>
+  </body>
+</html>
